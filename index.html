@@ -4,11 +4,62 @@
   </head>
   <body>
     <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
+      <!-- 空と地面 -->
+      <a-sky color="#CFE8F3"></a-sky>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="40" height="40" color="#88C999"></a-plane>
+
+      <!-- 前：ランドルト環 -->
+      <a-entity position="0 2 -5">
+        <a-box position="0 0 -0.1" width="2.4" height="2.4" depth="0.1" color="#FFFFFF"></a-box>
+        <a-torus radius="0.65" radius-tubular="0.14" arc="315" rotation="0 0 22.5" color="#111111"></a-torus>
+        <a-cylinder position="0 -1.3 -0.1" radius="0.06" height="1.4" color="#666666"></a-cylinder>
+      </a-entity>
+
+      <!-- 右：カラーコーンとバー -->
+      <a-entity position="4.5 0 0" rotation="0 -90 0">
+        <a-entity position="-1.1 0 0">
+          <a-box position="0 0.03 0" width="0.55" height="0.06" depth="0.55" color="#D9381E"></a-box>
+          <a-cone position="0 0.45 0" radius-bottom="0.22" radius-top="0.04" height="0.85" color="#FF4500"></a-cone>
+          <a-cylinder position="0 0.45 0" radius="0.135" height="0.22" color="#FFFFFF"></a-cylinder>
+        </a-entity>
+        <a-entity position="1.1 0 0">
+          <a-box position="0 0.03 0" width="0.55" height="0.06" depth="0.55" color="#D9381E"></a-box>
+          <a-cone position="0 0.45 0" radius-bottom="0.22" radius-top="0.04" height="0.85" color="#FF4500"></a-cone>
+          <a-cylinder position="0 0.45 0" radius="0.135" height="0.22" color="#FFFFFF"></a-cylinder>
+        </a-entity>
+        <!-- バー -->
+        <a-cylinder position="0 0.72 0" rotation="0 0 90" radius="0.04" height="2.4" color="#FFD700"></a-cylinder>
+        <a-cylinder position="-0.6 0.72 0" rotation="0 0 90" radius="0.042" height="0.3" color="#111111"></a-cylinder>
+        <a-cylinder position="0 0.72 0" rotation="0 0 90" radius="0.042" height="0.3" color="#111111"></a-cylinder>
+        <a-cylinder position="0.6 0.72 0" rotation="0 0 90" radius="0.042" height="0.3" color="#111111"></a-cylinder>
+      </a-entity>
+
+      <!-- 左：信号機 -->
+      <a-entity position="-4.5 0 0" rotation="0 90 0">
+        <!-- 支柱 -->
+        <a-cylinder position="-0.8 1.6 0" radius="0.08" height="3.2" color="#888888"></a-cylinder>
+        <a-cylinder position="-0.2 2.7 0" rotation="0 0 90" radius="0.06" height="1.3" color="#888888"></a-cylinder>
+        <!-- 信号機本体 -->
+        <a-box position="0.3 2.7 0.08" width="1.5" height="0.5" depth="0.25" color="#DDDDDD"></a-box>
+        <!-- ランプ -->
+        <a-sphere position="-0.15 2.7 0.2" radius="0.16" color="#00BFFF" emissive="#0088CC" emissive-intensity="0.4"></a-sphere>
+        <a-sphere position="0.3 2.7 0.2" radius="0.16" color="#FFD700" emissive="#CC9900" emissive-intensity="0.4"></a-sphere>
+        <a-sphere position="0.75 2.7 0.2" radius="0.16" color="#FF3333" emissive="#CC0000" emissive-intensity="0.6"></a-sphere>
+      </a-entity>
+
+      <!-- 後：気球 -->
+      <a-entity position="0 3.2 7" animation="property: position; to: 0 3.6 7; dir: alternate; dur: 2500; loop: true; easing: easeInOutSine">
+        <!-- 気球頭 -->
+        <a-sphere position="0 1.4 0" radius="1.3" color="#FF5A5F"></a-sphere>
+        <a-cone position="0 0.25 0" rotation="180 0 0" radius-bottom="0.95" radius-top="0.35" height="1.1" color="#FFB400"></a-cone>
+  
+        <a-box position="0 -0.85 0" width="0.55" height="0.45" depth="0.55" color="#8B5A2B"></a-box>
+        <!-- ロープ -->
+        <a-cylinder position="-0.22 -0.45 -0.22" radius="0.015" height="0.55" color="#555555"></a-cylinder>
+        <a-cylinder position="0.22 -0.45 -0.22" radius="0.015" height="0.55" color="#555555"></a-cylinder>
+        <a-cylinder position="-0.22 -0.45 0.22" radius="0.015" height="0.55" color="#555555"></a-cylinder>
+        <a-cylinder position="0.22 -0.45 0.22" radius="0.015" height="0.55" color="#555555"></a-cylinder>
+      </a-entity>
     </a-scene>
   </body>
 </html>
